@@ -1,0 +1,32 @@
+{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail%}
+<li>
+
+          {% if article.featured_image_id %}
+            {% if not detail_view %}
+                <a href="{{ article.get_absolute_url }}">
+            {% endif %}
+                <img src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}" alt="{{ article.featured_image.alt }}" />
+            {% if not detail_view %}
+                </a>
+            {% endif %}
+    {% endif %}
+
+
+    <div class="caption slide-h center-align">
+
+    <h3>
+        {% if not detail_view %}
+            <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% render_model article "title" %}</a>
+        {% else %}
+            {% render_model article "title" %}
+        {% endif %}
+    </h3>
+        
+        <h5 class="light">
+        {% if not detail_view %} 
+            {% render_model article "lead_in" "" "" "truncatewords_html:'15'" %}
+        {% endif %}
+        </h5>
+    </div>
+</li>
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/aldryn-newsblog/article.css' %}">{% endaddtoblock %}

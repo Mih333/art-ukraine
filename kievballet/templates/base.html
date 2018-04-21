@@ -1,0 +1,89 @@
+{% load cms_tags sekizai_tags i18n staticfiles static menu_tags cache %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+  {% block meta_tags %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{% page_attribute " meta_description " %}" />
+  <meta name="keywords" content="{% page_attribute " meta_keywords " %}" />
+  <!--[if IEMobile]><meta http-equiv="cleartype" content="on" /><![endif]-->
+  {% endblock meta_tags %}
+  <title>{% block title %}{% page_attribute page_title %}{% if site_settings.site.name %} - {{ site_settings.site.name }}{% endif %}{% endblock title %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/materialize.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  
+  <script src="https://use.fontawesome.com/206cab0f61.js"></script>
+  <link href="{% static 'img/favicon.png' %}" rel="shortcut icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
+  {% render_block "css" %}
+</head>
+
+<body>
+  {% cms_toolbar %}
+<div id="page-loader">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>
+  <!--========== HEADER ==========-->
+  <header class="navbar-fixed">
+
+  <nav class="white z-depth-0" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><p><span id="logo-red">ART</span>UKRAINE</p></a>
+      <ul class="right hide-on-med-and-down">
+        {% show_menu 0 1 100 100 "includes/menu/navigation.html" %}
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        {% show_menu 0 1 100 100 "includes/menu/navigation.html" %}
+      </ul>
+      <a href="index.html#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  </header>
+  <!--========== END HEADER ==========-->
+  
+  {% block container %} 
+
+    {% block content %}
+    {% endblock content %} 
+    
+  {% endblock %}
+  <!-- /container -->
+  <!--========== FOOTER ==========-->
+<footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center">
+      <div class="social-links">
+        <a href="index.html#"><img src="{% static 'img/facebook.svg' %}"></a>
+        <a href="index.html#"><img src="{% static 'img/twitter.svg' %}"></a>
+        <a href="index.html#"><img src="{% static 'img/instagram.svg' %}"></a>
+      </div>
+        <p class="grey-text">© Copyright 2018. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+  <!--========== END FOOTER ==========-->
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+  <!--========== END JAVASCRIPTS ==========-->
+  {% render_block "js" %}
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{% extends "aldryn_newsblog/base.html" %} {% load i18n cms_tags %} 
+{% block content %}
+<div class="section margin-top" id="blog">
+  <div class="container">
+    <div class="row">
+        <div class="aldryn aldryn-newsblog">
+          {% block newsblog_content %}
+
+          {% endblock %}
+        </div>
+    </div>
+  </div>
+  <div class="aldryn aldryn-newsblog">
+    {% block newsblog_footer %}{% endblock %}
+  </div>
+</div>
+{% endblock content %}

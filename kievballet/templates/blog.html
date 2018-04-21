@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load apphooks_config_tags cms_tags menu_tags staticfiles i18n sekizai_tags thumbnail%}
+
+{% block content %}
+	
+{% endblock %}
+
+<!--{% if article.featured_image_id %}
+        <p class="visual">
+            {% if not detail_view %}
+                <a href="{{ article.get_absolute_url }}">
+            {% endif %}
+            <img src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}" alt="{{ article.featured_image.alt }}" class="img-responsive">
+            {% if not detail_view %}
+                </a>
+            {% endif %}
+        </p>
+    {% endif %}

@@ -1,0 +1,41 @@
+{% extends "aldryn_newsblog/base.html" %}
+{% load i18n cms_tags %}
+
+{% block content %}
+<div class="header">
+      {% static_placeholder 'featured_articles' %}
+</div>
+<div class="section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="about-info">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et suscipit magna, ut efficitur quam. Donec dignissim tincidunt felis ac posuere. Aliquam dapibus magna ac nisi pharetra, quis condimentum dolor cursus. Nullam at maximus massa. Pellentesque dapibus, purus gravida sagittis suscipit, risus felis finibus eros, quis tincidunt purus ex eu urna. Sed sed scelerisque eros, et ultrices mi. Morbi auctor a massa non malesuada. Mauris condimentum interdum turpis sed ornare. Sed eu erat diam. Praesent vestibulum ligula vel turpis lobortis tempus. Nunc molestie fermentum diam id cursus. Duis vitae posuere libero, ut placerat arcu. Sed ac sollicitudin tellus.</p>
+            <p>Curabitur varius dui sit amet mollis efficitur. Maecenas ipsum libero, porta sit amet elementum ac, finibus vitae metus. Vivamus bibendum fringilla neque aliquet rhoncus. Phasellus luctus libero eget erat laoreet, et sagittis lorem efficitur. Morbi blandit in eros at ornare. Aenean vitae egestas risus. Suspendisse nec euismod velit. Donec id magna orci. In scelerisque erat at justo dapibus tincidunt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="section" id="blog">
+  <div class="container">
+    <div class="row center">
+      <div class="col s12 ">
+        {% if view.show_header %}
+          {% static_placeholder "newsblog_feature" %}
+        {% endif %}
+        <div class="aldryn aldryn-newsblog">
+          {% block newsblog_content %}{% endblock %}
+        </div>
+      </div>
+            <div class="col m7 aldryn-newsblog aldryn-newsblog-sidebar">
+                {% static_placeholder "newsblog_sidebar" %}
+                {% block newsblog_sidebar %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+    {% block newsblog_footer %}{% endblock %}
+{% endblock content %}
