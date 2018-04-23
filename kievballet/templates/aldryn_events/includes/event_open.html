@@ -1,12 +1,14 @@
 {% load i18n cms_tags sekizai_tags thumbnail tz %}
 
-<article class="blog-item col s12 m6 l4
+<article class="article 
     {% if is_ongoing_events %} events-ongoing{% endif %}
     {% if is_upcoming_events %} events-upcoming{% endif %}
     {% if event.is_outdated %} events-outdated{% endif %}">
-<h6 class="center-align">{{ ev_group.grouper|date:"l, j F o" }}</h6>
-<div class="blog-head hoverable">
+
+
     {% if event.image %}
+    <div class="parallax-container">
+        <div class="parallax">
             {% if not detail_view %}
                 <a href="{{ event.get_absolute_url }}">
             {% endif %}
@@ -14,16 +16,17 @@
             {% if not detail_view %}
                 </a>
             {% endif %}  
+        </div>
+    </div>
     {% endif %}
-</div>
-<div class="blog-body">
-    <h4>
+    
+    <h2>
         {% if not detail_view %}
             <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
         {% else %}
             {{ event.title }}
         {% endif %}
-    </h4>
+    </h2>
 
     {% if event.location %}
         <p>
@@ -45,25 +48,10 @@
         {% endif %}
     </p>
     {% if event.short_description %}
-        {% render_model event "short_description" "short_description" "" "truncatewords:'25'" %}
+        {% render_model event "short_description" "short_description" "" %}
     {% endif %}
 
     {% if detail_view %}
         {% render_placeholder event.description %}
     {% endif %}
-
-</div>
 </article>
-
-{% comment %}
->>> this is a event.location views on map
-
- {% if event.location_lat and event.location_lng %}
-                <a href="http://maps.google.com?q={{ event.location_lat }},{{ event.location_lng }}" target="_blank">
-            {% else %}
-                <a href="http://maps.google.com?q={{ event.location|slugify }}" target="_blank">
-            {% endif %}
-                {{ event.location }}
-            </a>
-
-{% endcomment %}

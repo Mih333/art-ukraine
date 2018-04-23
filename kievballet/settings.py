@@ -170,8 +170,11 @@ INSTALLED_APPS = (
     'parler',
     'sortedm2m',
     'taggit',
-    'reversion'
+    'reversion',
+    'aldryn_disqus'
 )
+
+DISQUS_SHORTNAME = 'example'
 
 LANGUAGES = (
     ## Customize this

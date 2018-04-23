@@ -1,6 +1,5 @@
 {% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail%}
-
-  <article class="blog-item col s12 m6 l4">
+<article class="col m4 s12">
     <div class="blog-head hoverable">
         {% if article.featured_image_id %}
             {% if not detail_view %}
@@ -36,6 +35,5 @@
         </p>
         {% endif %}
     </div>
-  </article>
-
+</article>
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/aldryn-newsblog/article.css' %}">{% endaddtoblock %}
