@@ -1,6 +1,6 @@
 {% load i18n cms_tags sekizai_tags thumbnail tz %}
 
-<article class="article 
+<article class="article
     {% if is_ongoing_events %} events-ongoing{% endif %}
     {% if is_upcoming_events %} events-upcoming{% endif %}
     {% if event.is_outdated %} events-outdated{% endif %}">
@@ -15,11 +15,11 @@
                 <img src="{% thumbnail event.image 800x450 crop subject_location=event.image.subject_location %}" alt="{{ event.image.alt }}">
             {% if not detail_view %}
                 </a>
-            {% endif %}  
+            {% endif %}
         </div>
     </div>
     {% endif %}
-    
+
     <h2>
         {% if not detail_view %}
             <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>

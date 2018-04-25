@@ -1,0 +1,9 @@
+{% load static sekizai_tags %}
+
+{# DOCS: http://getbootstrap.com/javascript/#carousel #}
+<div id="js-carousel-id-{{ instance.pk }}" class="{{ instance.style }}
+    slider{% if instance.transition_effect %} {{ instance.transition_effect }}{% endif %}
+    {{ instance.classes }}">
+
+    {% block content_carousel %}{% endblock %}
+</div>
