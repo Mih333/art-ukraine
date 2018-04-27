@@ -170,8 +170,12 @@ INSTALLED_APPS = (
     'parler',
     'sortedm2m',
     'taggit',
-    'reversion'
+    'reversion',
+    'aldryn_disqus',
+    'link'
 )
+
+DISQUS_SHORTNAME = 'ArtUkraine'
 
 LANGUAGES = (
     ## Customize this
@@ -237,7 +241,7 @@ DATABASES = {
 }
 
 MIGRATION_MODULES = {
-    
+
 }
 
 THUMBNAIL_PROCESSORS = (

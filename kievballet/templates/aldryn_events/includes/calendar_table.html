@@ -1,7 +1,7 @@
 {% load i18n aldryn_events %}
 
 {% spaceless %}
-    <table class="js-calendar-table"
+    <table class="js-calendar-table center-align"
         data-month-numeric="{{ calendar_tag.current_date|date:'n' }}"
         data-month="{{ calendar_tag.current_date|date:'F' }}"
         data-year="{{ calendar_tag.current_date|date:'Y' }}">

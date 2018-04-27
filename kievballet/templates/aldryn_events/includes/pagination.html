@@ -1,10 +1,12 @@
 {% load i18n %}
-
-<ul>
+<div class="row">
+    <div class="col s12 center">
+    
+<ul class="pagination">
     {% if page_obj.has_previous %}
         <li>
             <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">
-                {% trans "Previous" %}
+                <i class="material-icons">chevron_left</i>{% trans "Previous" %}
             </a>
         </li>
     {% endif %}
@@ -14,10 +16,10 @@
             {% if page_obj.number == num %}
                 <li class="active"><span>{{ num }}</span></li>
             {% else %}
-                <li><a href="{{ request.path }}?page={{ num }}">{{ num }}</a></li>
+                <li class="waves-effect"><a href="{{ request.path }}?page={{ num }}">{{ num }}</a></li>
             {% endif %}
         {% else %}
-            <li><a href="{{ request.path }}?page={{ num|add:"5" }}">...</a></li>
+            <li class="waves-effect"><a href="{{ request.path }}?page={{ num|add:"5" }}">...</a></li>
         {% endif %}
     {% empty %}
         <li class="active"><span>1</span></li>
@@ -26,8 +28,11 @@
     {% if page_obj.has_next %}
         <li>
             <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">
-                {% trans "Next" %}
+                {% trans "Next" %}<i class="material-icons">chevron_right</i>
             </a>
         </li>
     {% endif %}
 </ul>
+    
+</div>
+</div>

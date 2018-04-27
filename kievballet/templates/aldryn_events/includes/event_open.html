@@ -1,0 +1,51 @@
+{% load i18n static cms_tags sekizai_tags thumbnail tz %}
+
+<article class="article">
+
+    {% if event.image %}
+    <div class="parallax-container">
+      <div class="layer"></div>
+        <div class="parallax">
+            {% if not detail_view %}
+                <a href="{{ event.get_absolute_url }}">
+            {% endif %}
+                <img src="{% thumbnail event.image 800x450 crop subject_location=event.image.subject_location %}" alt="{{ event.image.alt }}">
+            {% if not detail_view %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    <h2 class="header-title">{{ event.title }}</h2>
+
+<div class="container flow-text">
+  <div class="row">
+    <div class="col s12 m10">
+
+    <p class="date">
+        {% if not detail_view %}
+            {% if event.start_time %} {{ event.start_at|time:"H:i" }}{% endif %}
+            {% if event.end_time %} – {{ event.end_at|time:"H:i" }}{% endif %}
+        {% else %}
+            {{ event.start_date|date }}
+            {% if event.start_time %} {% trans "at" %} {{ event.start_at|time:"H:i" }}{% endif %}
+            {% if event.end_date %}
+                 – {{ event.end_date|date }}
+                {% if event.end_time %} {% trans "at" %} {{ event.end_at|time:"H:i" }}{% endif %}
+            {% endif %}
+        {% endif %}
+    </p>
+    {% if event.short_description %}
+        {% render_model event "short_description" "short_description" "" %}
+    {% endif %}
+    </div>
+    <span class="col s12 m10">
+
+    </span>
+
+  </div>
+</div>
+{% if detail_view %}
+    {% render_placeholder event.description %}
+{% endif %}
+</article>

@@ -1,0 +1,25 @@
+{% load cms_tags %}
+
+{# INFO: slide for a SlideCMSPlugin instance #}
+
+<li>
+    {% with link=instance.get_link_url image=instance.image %}
+
+                {% if image %}
+                    {% with image=instance.image srcset=carousel.srcset %}{% include 'aldryn_bootstrap3/plugins/carousel/standard/includes/image.html' %}{% endwith %}
+                {% else %}
+                    {{ instance.link_text }}
+                {% endif %}
+
+
+    {% endwith %}
+
+    {% if instance.content or instance.child_plugin_instances %}
+        <div class="caption center-align">
+            {{ instance.content|safe }}
+            {% for plugin in instance.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</li>

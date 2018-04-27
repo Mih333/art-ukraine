@@ -12,10 +12,10 @@
             data-error="{% trans 'There was a problem accessing the calendar, please try again.'|escapejs %}">
 
             <h3>{{ calendar_tag.label }}</h3>
-            <p>
-                <a href="#" class="js-calendar-trigger" data-direction="previous">{% trans "Previous month" %}</a>
+            <p class="month_switch">
+                <a href="#" class="js-calendar-trigger prev" data-direction="previous">{% trans "Previous month" %}</a>
                 <a href="{% fallback_aware_namespace_url 'events_list' calendar_tag.namespace %}">{% trans "Today" %}</a>
-                <a href="#" class="js-calendar-trigger" data-direction="next">{% trans "Next month" %}</a>
+                <a href="#" class="js-calendar-trigger next" data-direction="next">{% trans "Next month" %}</a>
             </p>
 
             {% include "aldryn_events/includes/calendar_table.html" %}

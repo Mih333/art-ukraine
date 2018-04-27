@@ -18,10 +18,11 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/materialize.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/main.css' %}" rel="stylesheet">
-  
+  <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
   <script src="https://use.fontawesome.com/206cab0f61.js"></script>
   <link href="{% static 'img/favicon.png' %}" rel="shortcut icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon"> 
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
   {% render_block "css" %}
 </head>
 
@@ -46,17 +47,17 @@
       <ul id="nav-mobile" class="side-nav">
         {% show_menu 0 1 100 100 "includes/menu/navigation.html" %}
       </ul>
-      <a href="index.html#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="index.html#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   </header>
   <!--========== END HEADER ==========-->
-  
-  {% block container %} 
+
+  {% block container %}
 
     {% block content %}
-    {% endblock content %} 
-    
+    {% endblock content %}
+
   {% endblock %}
   <!-- /container -->
   <!--========== FOOTER ==========-->
@@ -65,11 +66,11 @@
       <div class="row">
         <div class="col s12 center">
       <div class="social-links">
-        <a href="index.html#"><img src="{% static 'img/facebook.svg' %}"></a>
-        <a href="index.html#"><img src="{% static 'img/twitter.svg' %}"></a>
-        <a href="index.html#"><img src="{% static 'img/instagram.svg' %}"></a>
+        <a href="#"><img src="{% static 'img/facebook.svg' %}"></a>
+        <a href="#"><img src="{% static 'img/twitter.svg' %}"></a>
+        <a href="#"><img src="{% static 'img/instagram.svg' %}"></a>
       </div>
-        <p class="grey-text">© Copyright 2018. All Rights Reserved.</p>
+        <p class="grey-text">© Copyright {% now 'Y' %}. All Rights Reserved.</p>
       </div>
     </div>
   </div>
@@ -81,8 +82,11 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+  <script id="dsq-count-scr" src="//http-167-99-3-132.disqus.com/count.js" async></script>
   <!--========== END JAVASCRIPTS ==========-->
+  
   {% render_block "js" %}
 </body>
 

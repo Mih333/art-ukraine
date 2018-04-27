@@ -21,7 +21,7 @@
             {% else %}
                 <li class="previous"><span class="text-muted"><span aria-hidden="true">&larr;</span> {% trans "Previous Article" %}</span></li>
             {% endif %}
-            
+
             {% if next_article %}
                 <li class="next"><a href="{{ next_article.get_absolute_url }}">{% trans "Next Article" %} <span aria-hidden="true">&rarr;</span></a></li>
             {% else %}
@@ -29,5 +29,10 @@
             {% endif %}
         </ul>
     </div>
-    {% static_placeholder "newsblog_comments" %}
+
+    <div class="container">
+        <div id="disqus_thread">
+          {% static_placeholder 'comments' %}
+        </div>
+    </div>
 {% endblock %}
