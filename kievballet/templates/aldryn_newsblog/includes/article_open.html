@@ -18,18 +18,18 @@
                     {% if not detail_view %}
                 <a href="{{ article.get_absolute_url }}">
                     {% endif %}
-                    <img  src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}" alt="{{ article.featured_image.alt }}" class="">            
+                    <img  src="{% thumbnail article.featured_image 800x450 crop subject_location=article.featured_image.subject_location %}" alt="{{ article.featured_image.alt }}" class="">
             {% if not detail_view %}
                 </a>
             {% endif %}
                 </div>
             </div>
-            
-    {% endif %}
-    </div>  
 
-<div class="news-text">
-    
+    {% endif %}
+    </div>
+
+<div class="news-text flow-text">
+
 
      {% if article.categories %}
         <p class="category ">
@@ -72,5 +72,3 @@
 </div>
 </article>
 <!-- {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/aldryn-newsblog/article.css' %}">{% endaddtoblock %} -->
-
-

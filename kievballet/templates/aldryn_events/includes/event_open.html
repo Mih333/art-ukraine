@@ -1,13 +1,10 @@
-{% load i18n cms_tags sekizai_tags thumbnail tz %}
+{% load i18n static cms_tags sekizai_tags thumbnail tz %}
 
-<article class="article
-    {% if is_ongoing_events %} events-ongoing{% endif %}
-    {% if is_upcoming_events %} events-upcoming{% endif %}
-    {% if event.is_outdated %} events-outdated{% endif %}">
-
+<article class="article">
 
     {% if event.image %}
     <div class="parallax-container">
+      <div class="layer"></div>
         <div class="parallax">
             {% if not detail_view %}
                 <a href="{{ event.get_absolute_url }}">
@@ -19,20 +16,11 @@
         </div>
     </div>
     {% endif %}
+    <h2 class="header-title">{{ event.title }}</h2>
 
-    <h2>
-        {% if not detail_view %}
-            <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
-        {% else %}
-            {{ event.title }}
-        {% endif %}
-    </h2>
-
-    {% if event.location %}
-        <p>
-           {{ event.location }}
-        </p>
-    {% endif %}
+<div class="container flow-text">
+  <div class="row">
+    <div class="col s12 m10">
 
     <p class="date">
         {% if not detail_view %}
@@ -50,8 +38,14 @@
     {% if event.short_description %}
         {% render_model event "short_description" "short_description" "" %}
     {% endif %}
+    </div>
+    <span class="col s12 m10">
 
-    {% if detail_view %}
-        {% render_placeholder event.description %}
-    {% endif %}
+    </span>
+
+  </div>
+</div>
+{% if detail_view %}
+    {% render_placeholder event.description %}
+{% endif %}
 </article>

@@ -2,6 +2,8 @@
 {% load i18n aldryn_events cms_tags %}
 
 {% block events_content %}
+<div class="container">
+
     <div class="center-align">
     {% block calendar %}
         {% calendar event_year event_month namespace=view.namespace %}
@@ -31,6 +33,7 @@
         </div>
     </div>
     {% include "aldryn_events/includes/pagination.html" %}
-    
+
     {% get_current_language as language %}
+</div>
 {% endblock %}
